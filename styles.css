@@ -91,10 +91,10 @@ header p {
   border: 1px solid var(--bordure);
   border-radius: 1rem;
   cursor: pointer;
+  touch-action: none; /* le doigt pilote le slider au lieu du scroll de page */
 }
 
 #axe::before {
-  /* poignée unique, déplaçable au clic */
   content: "";
   position: absolute;
   top: 50%;
@@ -114,7 +114,7 @@ header p {
   max-width: 50rem;
   margin: 0.5rem auto 0;
   position: relative;
-  height: 3.25rem;
+  height: 3.5rem;
 }
 
 .axe-parti {
@@ -137,6 +137,11 @@ header p {
   opacity: 0.25;
   cursor: default;
   pointer-events: none;
+}
+
+/* Deuxième niveau : anti-collision des libellés trop proches */
+.axe-parti.niveau-bas {
+  top: 1.7rem;
 }
 
 .axe-parti.compte {

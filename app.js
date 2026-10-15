@@ -76,8 +76,21 @@ function partiEstActif(parti) {
 
 function afficherPartisSurAxe(conteneurAxe) {
   conteneurAxe.replaceChildren();
-  for (const parti of partis) {
+  /* Anti-collision : deux niveaux. Les partis sont traités de gauche à droite.
+   * Un parti va sur la ligne haute, sauf si le dernier parti posé en haut
+   * est trop proche (moins de 10 unités d'axe) : il descend alors d'un niveau. */
+  const ECART_MIN = 10;
+  let dernierHaut = -100;
+  let dernierBas = -100;
+  const tries = [...partis].sort((a, b) => a.axe - b.axe);
+  for (const parti of tries) {
     const bouton = creer("button", "axe-parti");
+    if (parti.axe - dernierHaut < ECART_MIN && (dernierBas === -100 || parti.axe - dernierBas >= ECART_MIN)) {
+      bouton.classList.add("niveau-bas");
+      dernierBas = parti.axe;
+    } else {
+      dernierHaut = parti.axe;
+    }
     bouton.style.left = parti.axe + "%";
     bouton.dataset.parti = parti.id;
     bouton.type = "button";
@@ -131,15 +144,22 @@ function configurerSlider(axe) {
   axe.addEventListener("pointerdown", (e) => {
     axe.classList.add("saisie");
     majPlageDepuisEvent(e.clientX);
-    const deplacer = (ev) => majPlageDepuisEvent(ev.clientX);
+    const deplacer = (ev) => majPlageDesdeEventTactile(ev);
     const relacher = () => {
       axe.classList.remove("saisie");
       window.removeEventListener("pointermove", deplacer);
       window.removeEventListener("pointerup", relacher);
+      window.removeEventListener("pointercancel", relacher);
     };
     window.addEventListener("pointermove", deplacer);
     window.addEventListener("pointerup", relacher);
+    window.addEventListener("pointercancel", relacher);
   });
+
+  /* Variante tactile : suit le doigt où qu'il aille, sans blocage */
+  function majPlageDesdeEventTactile(ev) {
+    majPlageDepuisEvent(ev.clientX);
+  }
 
   axe.addEventListener("keydown", (e) => {
     let [debut, fin] = etat.plage;
