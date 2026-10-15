@@ -131,8 +131,7 @@ function rafraichirEtatVisuel() {
 /* ---------- Slider : plage au clic, au doigt et au clavier ---------- */
 
 function configurerSlider(axe) {
-  /* Restitue l'état visuellement : la poignée suit le centre de la plage.
-   * C'est la fonction qui manquait — l'état était calculé mais jamais affiché. */
+  /* Restitue l'état visuellement : la poignée suit le centre de la plage. */
   function deplacerPoignee() {
     const centre = (etat.plage[0] + etat.plage[1]) / 2;
     axe.style.setProperty("--poignee", centre + "%");
@@ -151,19 +150,29 @@ function configurerSlider(axe) {
   }
 
   axe.addEventListener("pointerdown", (e) => {
-    e.preventDefault(); /* évite sélection/scroll parasite au démarrage du geste */
+    e.preventDefault(); /* évite sélection parasite au démarrage du geste */
+    /* Capture : le geste reste rattaché à l'axe même si le doigt en sort. */
+    try { axe.setPointerCapture(e.pointerId); } catch (_) {}
     axe.classList.add("saisie");
     majPlageDepuisPoint(e.clientX);
-    const deplacer = (ev) => majPlageDepuisPoint(ev.clientX);
+
+    /* Certains navigateurs mobiles ignorent touch-action : dès que le doigt
+     * bouge, ils transforment le geste en scroll de page et l'annulent
+     * (pointercancel). D'où le blocage manuel du scroll pendant le geste. */
+    const bloquerScroll = (ev) => ev.preventDefault();
+    window.addEventListener("touchmove", bloquerScroll, { passive: false });
+
+    const deplacer = (ev) => { ev.preventDefault(); majPlageDepuisPoint(ev.clientX); };
     const relacher = () => {
       axe.classList.remove("saisie");
-      window.removeEventListener("pointermove", deplacer);
-      window.removeEventListener("pointerup", relacher);
-      window.removeEventListener("pointercancel", relacher);
+      axe.removeEventListener("pointermove", deplacer);
+      axe.removeEventListener("pointerup", relacher);
+      axe.removeEventListener("pointercancel", relacher);
+      window.removeEventListener("touchmove", bloquerScroll);
     };
-    window.addEventListener("pointermove", deplacer);
-    window.addEventListener("pointerup", relacher);
-    window.addEventListener("pointercancel", relacher);
+    axe.addEventListener("pointermove", deplacer);
+    axe.addEventListener("pointerup", relacher);
+    axe.addEventListener("pointercancel", relacher);
   });
 
   axe.addEventListener("keydown", (e) => {
