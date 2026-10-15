@@ -76,21 +76,22 @@ function partiEstActif(parti) {
 
 function afficherPartisSurAxe(conteneurAxe) {
   conteneurAxe.replaceChildren();
-  /* Anti-collision : deux niveaux. Les partis sont traités de gauche à droite.
-   * Un parti va sur la ligne haute, sauf si le dernier parti posé en haut
-   * est trop proche (moins de 10 unités d'axe) : il descend alors d'un niveau. */
+  /* Anti-collision : trois lignes. Les partis sont traités de gauche à droite,
+   * chacun prend la première ligne dont le dernier occupant est à au moins
+   * ECART_MIN unités d'axe. Couvre les grappes réelles (50-55, 72-74, 90-92). */
   const ECART_MIN = 10;
-  let dernierHaut = -100;
-  let dernierBas = -100;
+  const derniere = [-100, -100, -100];
   const tries = [...partis].sort((a, b) => a.axe - b.axe);
   for (const parti of tries) {
-    const bouton = creer("button", "axe-parti");
-    if (parti.axe - dernierHaut < ECART_MIN && (dernierBas === -100 || parti.axe - dernierBas >= ECART_MIN)) {
-      bouton.classList.add("niveau-bas");
-      dernierBas = parti.axe;
-    } else {
-      dernierHaut = parti.axe;
+    let ligne = 2;
+    for (let i = 0; i < 3; i++) {
+      if (parti.axe - derniere[i] >= ECART_MIN) { ligne = i; break; }
     }
+    derniere[ligne] = parti.axe;
+
+    const bouton = creer("button", "axe-parti");
+    if (ligne === 1) bouton.classList.add("niveau-milieu");
+    if (ligne === 2) bouton.classList.add("niveau-bas");
     bouton.style.left = parti.axe + "%";
     bouton.dataset.parti = parti.id;
     bouton.type = "button";
@@ -127,10 +128,17 @@ function rafraichirEtatVisuel() {
   }
 }
 
-/* ---------- Slider : plage au clic et au clavier ---------- */
+/* ---------- Slider : plage au clic, au doigt et au clavier ---------- */
 
 function configurerSlider(axe) {
-  function majPlageDepuisEvent(clientX) {
+  /* Restitue l'état visuellement : la poignée suit le centre de la plage.
+   * C'est la fonction qui manquait — l'état était calculé mais jamais affiché. */
+  function deplacerPoignee() {
+    const centre = (etat.plage[0] + etat.plage[1]) / 2;
+    axe.style.setProperty("--poignee", centre + "%");
+  }
+
+  function majPlageDepuisPoint(clientX) {
     const rect = axe.getBoundingClientRect();
     const x = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
     const point = Math.round(x * 100);
@@ -138,13 +146,15 @@ function configurerSlider(axe) {
     const fin = Math.min(100, point + 15);
     etat.plage = [debut, fin];
     axe.setAttribute("aria-valuenow", debut + "-" + fin);
+    deplacerPoignee();
     rafraichirEtatVisuel();
   }
 
   axe.addEventListener("pointerdown", (e) => {
+    e.preventDefault(); /* évite sélection/scroll parasite au démarrage du geste */
     axe.classList.add("saisie");
-    majPlageDepuisEvent(e.clientX);
-    const deplacer = (ev) => majPlageDesdeEventTactile(ev);
+    majPlageDepuisPoint(e.clientX);
+    const deplacer = (ev) => majPlageDepuisPoint(ev.clientX);
     const relacher = () => {
       axe.classList.remove("saisie");
       window.removeEventListener("pointermove", deplacer);
@@ -156,11 +166,6 @@ function configurerSlider(axe) {
     window.addEventListener("pointercancel", relacher);
   });
 
-  /* Variante tactile : suit le doigt où qu'il aille, sans blocage */
-  function majPlageDesdeEventTactile(ev) {
-    majPlageDepuisEvent(ev.clientX);
-  }
-
   axe.addEventListener("keydown", (e) => {
     let [debut, fin] = etat.plage;
     if (e.key === "ArrowLeft" || e.key === "ArrowDown") { debut = Math.max(0, debut - 5); fin = Math.max(debut + 1, fin - 5); }
@@ -171,8 +176,11 @@ function configurerSlider(axe) {
     e.preventDefault();
     etat.plage = [debut, fin];
     axe.setAttribute("aria-valuenow", debut + "-" + fin);
+    deplacerPoignee();
     rafraichirEtatVisuel();
   });
+
+  deplacerPoignee(); /* position initiale : centre de l'axe */
 }
 
 /* ---------- Bloc 3 : cards ---------- */
