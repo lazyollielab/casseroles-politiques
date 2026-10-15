@@ -1,0 +1,345 @@
+/* ============ Base ============ */
+
+:root {
+  /* Couleurs de statut — la chaleur suit la gravité établie */
+  --statut-rouge: #d32f2f;      /* condamné définitif */
+  --statut-orange: #f57c00;     /* condamné, non définitif */
+  --statut-bleu: #1976d2;       /* en cours judiciaire */
+  --statut-vert: #388e3c;       /* issue favorable : relaxe, non-lieu, classement */
+  --statut-gris: #9e9e9e;       /* mis en cause presse */
+
+  /* Thème clair */
+  --fond: #fafafa;
+  --surface: #ffffff;
+  --texte: #212121;
+  --texte-secondaire: #757575;
+  --bordure: #e0e0e0;
+  --accent: #455a64;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #121212;
+    --surface: #1e1e1e;
+    --texte: #eeeeee;
+    --texte-secondaire: #9e9e9e;
+    --bordure: #333333;
+    --accent: #b0bec5;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fond);
+  color: var(--texte);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); }
+
+/* ============ En-tête ============ */
+
+header {
+  padding: 1.5rem 1rem 0.5rem;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.02em;
+}
+
+header p {
+  margin: 0.25rem auto 0;
+  max-width: 40rem;
+  color: var(--texte-secondaire);
+  font-size: 0.95rem;
+}
+
+/* ============ Bloc 1 : slider ============ */
+
+#bloc-slider {
+  padding: 1rem 1rem 0.5rem;
+}
+
+#axe-container {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+#axe-container span {
+  font-size: 0.75rem;
+  color: var(--texte-secondaire);
+  white-space: nowrap;
+}
+
+#axe {
+  position: relative;
+  height: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+#axe::before {
+  /* poignée unique, déplaçable au clic */
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  transform: translate(-50%, -50%);
+  background: var(--accent);
+  border-radius: 50%;
+  transition: left 0.15s ease-out;
+}
+
+#axe.saisie::before { transition: none; }
+
+/* Partis positionnés sur l'axe */
+#axis-partis {
+  max-width: 50rem;
+  margin: 0.5rem auto 0;
+  position: relative;
+  height: 3.25rem;
+}
+
+.axe-parti {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.8rem;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--texte);
+  padding: 0;
+}
+
+.axe-parti:hover { text-decoration: underline; }
+
+.axe-parti.inactif {
+  opacity: 0.25;
+  cursor: default;
+  pointer-events: none;
+}
+
+.axe-parti.compte {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--texte-secondaire);
+}
+
+/* ============ Bloc 2 : partis ============ */
+
+#bloc-partis {
+  padding: 0 1rem;
+}
+
+#legende-statuts {
+  max-width: 50rem;
+  margin: 0 auto 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  font-size: 0.78rem;
+  color: var(--texte-secondaire);
+}
+
+.legende-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pastille {
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.pastille-condamne { background: var(--statut-rouge); }
+.pastille-orange   { background: var(--statut-orange); }
+.pastille-bleu     { background: var(--statut-bleu); }
+.pastille-vert     { background: var(--statut-vert); }
+.pastille-gris     { background: var(--statut-gris); }
+
+#partis-liste {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+  gap: 0.75rem;
+}
+
+.parti-tuile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.15rem;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: 0.75rem;
+  text-align: left;
+  color: var(--texte);
+  font: inherit;
+  transition: border-color 0.15s ease, opacity 0.2s ease;
+  cursor: pointer;
+}
+
+.parti-tuile:hover { border-color: var(--accent); }
+
+.parti-tuile.inactif {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.parti-tuile.selectionne {
+  border-color: var(--accent);
+  border-width: 2px;
+  padding: calc(0.75rem - 1px);
+}
+
+.parti-tuile .sigle { font-weight: 600; }
+.parti-tuile .nom { font-size: 0.8rem; color: var(--texte-secondaire); }
+.parti-tuile .compte { font-size: 0.78rem; color: var(--texte-secondaire); }
+
+/* ============ Bloc 3 : cards ============ */
+
+#bloc-cards {
+  padding: 1rem;
+}
+
+#bloc-cards[hidden] { display: none; }
+
+#cards-titre {
+  max-width: 50rem;
+  margin: 0 auto 0.75rem;
+  font-size: 1.1rem;
+}
+
+#cards-liste {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.75rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--bordure);
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.card-entete {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-photo {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: cover;
+  background: var(--bordure);
+}
+
+.card-photo.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texte-secondaire);
+}
+
+.card-nom { font-weight: 600; font-size: 0.95rem; }
+.card-fonction { font-size: 0.78rem; color: var(--texte-secondaire); }
+
+.card-pastilles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  min-height: 0.7rem;
+}
+
+.card-pastilles .pastille { width: 0.7rem; height: 0.7rem; }
+
+/* Détail déplié */
+.card-detail { display: none; }
+.card.depliee .card-detail { display: block; }
+
+.card-detail {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--bordure);
+}
+
+.card-detail .affaire {
+  margin-bottom: 0.75rem;
+}
+
+.card-detail .affaire:last-child { margin-bottom: 0; }
+
+.card-detail .affaire-nom { font-weight: 600; font-size: 0.85rem; }
+.card-detail .affaire-statut { font-size: 0.75rem; color: var(--texte-secondaire); }
+.card-detail .affaire-periode { font-size: 0.75rem; color: var(--texte-secondaire); }
+.card-detail .affaire-resume { font-size: 0.82rem; margin: 0.35rem 0; }
+.card-detail .affaire-source {
+  font-size: 0.75rem;
+  color: var(--texte-secondaire);
+}
+
+/* Apparition légère du bloc cards */
+@keyframes apparition {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+#bloc-cards.visible { animation: apparition 0.25s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  #bloc-cards.visible { animation: none; }
+  #axe::before { transition: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* ============ Pied de page ============ */
+
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--texte-secondaire);
+}
+
+/* ============ Responsive ============ */
+
+@media (max-width: 40rem) {
+  #axe-container span { display: none; }
+  #cards-liste { grid-template-columns: 1fr; }
+  #legende-statuts { gap: 0.5rem 0.9rem; }
+}
