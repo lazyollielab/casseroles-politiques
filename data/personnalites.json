@@ -1,0 +1,298 @@
+[
+  {
+    "id": "jacques-chirac",
+    "nom": "Jacques Chirac",
+    "fonction": "Ancien président de la République",
+    "parti": "rpr",
+    "implications": [
+      {
+        "affaire": "emplois-fictifs-ville-de-paris",
+        "position": "condamne"
+      },
+      {
+        "affaire": "emplois-fictifs-rpr",
+        "position": "mis-en-cause"
+      }
+    ]
+  },
+  {
+    "id": "alain-juppe",
+    "nom": "Alain Juppé",
+    "fonction": "Ancien Premier ministre",
+    "parti": "rpr",
+    "implications": [
+      {
+        "affaire": "emplois-fictifs-rpr",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "nicolas-sarkozy",
+    "nom": "Nicolas Sarkozy",
+    "fonction": "Ancien président de la République",
+    "parti": "ump",
+    "implications": [
+      {
+        "affaire": "bygmalion",
+        "position": "condamne"
+      },
+      {
+        "affaire": "ecoutes-bismuth",
+        "position": "condamne"
+      },
+      {
+        "affaire": "financement-libyen",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "francois-fillon",
+    "nom": "François Fillon",
+    "fonction": "Ancien Premier ministre",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "affaire-fillon",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "jean-francois-cope",
+    "nom": "Jean-François Copé",
+    "fonction": "Ancien président de l'UMP, maire de Meaux",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "bygmalion",
+        "position": "non-lieu"
+      }
+    ]
+  },
+  {
+    "id": "jerome-cahuzac",
+    "nom": "Jérôme Cahuzac",
+    "fonction": "Ancien ministre du Budget",
+    "parti": "ps",
+    "implications": [
+      {
+        "affaire": "affaire-cahuzac",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "patrick-balkany",
+    "nom": "Patrick Balkany",
+    "fonction": "Ancien maire de Levallois-Perret",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "affaires-balkany",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "isabelle-balkany",
+    "nom": "Isabelle Balkany",
+    "fonction": "Ancienne première adjointe au maire de Levallois-Perret",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "affaires-balkany",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "marine-le-pen",
+    "nom": "Marine Le Pen",
+    "fonction": "Députée du Pas-de-Calais, ancienne présidente du RN",
+    "parti": "rn",
+    "implications": [
+      {
+        "affaire": "assistants-parlementaires-rn",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "jean-marie-le-pen",
+    "nom": "Jean-Marie Le Pen",
+    "fonction": "Ancien président du Front national",
+    "parti": "fn",
+    "implications": [
+      {
+        "affaire": "propos-condamnes-jmlp",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "bernard-tapie",
+    "nom": "Bernard Tapie",
+    "fonction": "Ancien ministre de la Ville",
+    "parti": "divers-gauche",
+    "implications": [
+      {
+        "affaire": "va-om-subornation",
+        "position": "condamne"
+      },
+      {
+        "affaire": "arbitrage-tapie",
+        "position": "mis-en-cause"
+      }
+    ]
+  },
+  {
+    "id": "christine-lagarde",
+    "nom": "Christine Lagarde",
+    "fonction": "Ancienne ministre de l'Économie, ex-directrice générale du FMI",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "arbitrage-tapie",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "charles-pasqua",
+    "nom": "Charles Pasqua",
+    "fonction": "Ancien ministre de l'Intérieur",
+    "parti": "rpr",
+    "implications": [
+      {
+        "affaire": "casino-annemasse",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "alain-carignon",
+    "nom": "Alain Carignon",
+    "fonction": "Ancien maire de Grenoble, ancien ministre",
+    "parti": "rpr",
+    "implications": [
+      {
+        "affaire": "corruption-grenoble",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "michel-mercier",
+    "nom": "Michel Mercier",
+    "fonction": "Ancien garde des Sceaux, ancien sénateur du Rhône",
+    "parti": "udi",
+    "implications": [
+      {
+        "affaire": "emplois-fictifs-assistants-mercier",
+        "position": "condamne"
+      },
+      {
+        "affaire": "assistants-parlementaires-midem",
+        "position": "condamne"
+      }
+    ]
+  },
+  {
+    "id": "francois-bayrou",
+    "nom": "François Bayrou",
+    "fonction": "Premier ministre, président du MoDem",
+    "parti": "modem",
+    "implications": [
+      {
+        "affaire": "assistants-parlementaires-midem",
+        "position": "relaxe"
+      }
+    ]
+  },
+  {
+    "id": "sylvie-goulard",
+    "nom": "Sylvie Goulard",
+    "fonction": "Ancienne ministre des Armées, ancienne députée européenne",
+    "parti": "modem",
+    "implications": [
+      {
+        "affaire": "assistants-parlementaires-midem",
+        "position": "non-lieu"
+      }
+    ]
+  },
+  {
+    "id": "richard-ferrand",
+    "nom": "Richard Ferrand",
+    "fonction": "Ancien président de l'Assemblée nationale",
+    "parti": "re",
+    "implications": [
+      {
+        "affaire": "mutuelles-bretagne",
+        "position": "classement"
+      }
+    ]
+  },
+  {
+    "id": "edith-cresson",
+    "nom": "Édith Cresson",
+    "fonction": "Ancienne Première ministre",
+    "parti": "ps",
+    "implications": [
+      {
+        "affaire": "emplois-commission-cresson",
+        "position": "classement"
+      }
+    ]
+  },
+  {
+    "id": "dominique-strauss-kahn",
+    "nom": "Dominique Strauss-Kahn",
+    "fonction": "Ancien directeur général du FMI, ancien ministre",
+    "parti": "ps",
+    "implications": [
+      {
+        "affaire": "carlton-lille",
+        "position": "relaxe"
+      }
+    ]
+  },
+  {
+    "id": "gerald-darmanin",
+    "nom": "Gérald Darmanin",
+    "fonction": "Ministre de la Justice",
+    "parti": "re",
+    "implications": [
+      {
+        "affaire": "accusation-viol-darmanin",
+        "position": "non-lieu"
+      }
+    ]
+  },
+  {
+    "id": "rachida-dati",
+    "nom": "Rachida Dati",
+    "fonction": "Ancienne garde des Sceaux, ancienne ministre de la Culture",
+    "parti": "lr",
+    "implications": [
+      {
+        "affaire": "honoraires-renault-dati",
+        "position": "en-proces"
+      }
+    ]
+  },
+  {
+    "id": "alain-griset",
+    "nom": "Alain Griset",
+    "fonction": "Ancien ministre délégué aux PME",
+    "parti": "divers-centre",
+    "implications": [
+      {
+        "affaire": "declaration-patrimoine-griset",
+        "position": "condamne"
+      }
+    ]
+  }
+]
