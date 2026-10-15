@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Casseroles Politiques</title>
+  <meta name="description" content="Recensement factuel et sourcé des affaires judiciaires impliquant des personnalités politiques françaises.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Casseroles Politiques</h1>
+    <p>Recensement factuel et sourcé des affaires judiciaires impliquant des personnalités politiques françaises.</p>
+  </header>
+
+  <main id="contenu">
+    <!-- Bloc 1 : slider panoramique -->
+    <section id="bloc-slider" aria-label="Sélection de la zone politique">
+      <div id="axe-container">
+        <span id="axe-extreme-gauche">Extrême gauche</span>
+        <div id="axe" role="slider" aria-label="Zone politique sélectionnée" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0-100" tabindex="0"></div>
+        <span id="axe-extreme-droite">Extrême droite</span>
+      </div>
+      <div id="axis-partis"></div>
+    </section>
+
+    <!-- Bloc 2 : liste des partis actifs -->
+    <section id="bloc-partis" aria-label="Partis actifs dans la zone sélectionnée">
+      <div id="legende-statuts">
+        <span class="legende-item"><span class="pastille pastille-condamne"></span>Condamné définitif</span>
+        <span class="legende-item"><span class="pastille pastille-orange"></span>Condamné (non définitif)</span>
+        <span class="legende-item"><span class="pastille pastille-bleu"></span>En cours judiciaire</span>
+        <span class="legende-item"><span class="pastille pastille-vert"></span>Issue favorable</span>
+        <span class="legende-item"><span class="pastille pastille-gris"></span>Mis en cause (presse)</span>
+      </div>
+      <div id="partis-liste"></div>
+    </section>
+
+    <!-- Bloc 3 : cards personnalités (chargées après clic sur un parti) -->
+    <section id="bloc-cards" aria-label="Personnalités du parti sélectionné" hidden>
+      <h2 id="cards-titre"></h2>
+      <div id="cards-liste"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Site factuel et satirique. Sources publiques vérifiables. <a href="https://github.com/lazyollielab/casseroles-politiques/blob/main/REGLES.md">Méthodologie et règles éditoriales</a>.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
