@@ -1,6 +1,6 @@
 /* Casseroles Politiques — logique de la page unique.
- * Chargement en deux temps : partis.json au démarrage,
- * affaires.json + personnalites.json au premier clic sur un parti.
+ * Chargement en deux temps : partis.json + personnalites.json au démarrage
+ * (quelques Ko), affaires.json au premier clic sur un parti.
  * Aucune dépendance, aucun build. */
 
 "use strict";
@@ -12,13 +12,12 @@ const etat = {
   partiSelectionne: null, // id du parti cliqué, ou null
 };
 
-/* Chargement paresseux : le deuxième lot n'est récupéré qu'une fois */
-let donneesCompletes = null;
+/* Chargement paresseux : affaires.json n'est récupéré qu'une fois */
+let affaires = null;
 
 /* ---------- Correspondance position -> classe de pastille ---------- */
 
 const CLASSES_PASTILLE = {
-  "condamne": "pastille-condamne",   // rouge si l'affaire est définitive, orange sinon — tranché au rendu
   "relaxe": "pastille-vert",
   "non-lieu": "pastille-vert",
   "classement": "pastille-vert",
@@ -65,13 +64,11 @@ async function chargerJson(chemin) {
   return reponse.json();
 }
 
-function echapper(texte) {
-  return texte.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
 /* ---------- Bloc 1 : axe et partis positionnés ---------- */
 
 let partis = [];
+let personnalites = [];
+let compteParParti = new Map();
 
 function partiEstActif(parti) {
   return parti.axe >= etat.plage[0] && parti.axe <= etat.plage[1];
@@ -93,12 +90,13 @@ function afficherPartisSurAxe(conteneurAxe) {
 function afficherPartisEnTuiles(conteneur) {
   conteneur.replaceChildren();
   for (const parti of partis) {
+    const compte = compteParParti.get(parti.id) || 0;
     const tuile = creer("button", "parti-tuile");
     tuile.dataset.parti = parti.id;
     tuile.type = "button";
     tuile.appendChild(creer("span", "sigle", parti.sigle));
     tuile.appendChild(creer("span", "nom", parti.nom));
-    tuile.appendChild(creer("span", "compte", parti.compte + " affaire" + (parti.compte > 1 ? "s" : "")));
+    tuile.appendChild(creer("span", "compte", compte + " personnalité" + (compte > 1 ? "s" : "")));
     tuile.addEventListener("click", () => selectionnerParti(parti.id));
     conteneur.appendChild(tuile);
   }
@@ -118,12 +116,11 @@ function rafraichirEtatVisuel() {
 
 /* ---------- Slider : plage au clic et au clavier ---------- */
 
-function configurerSlider(axe, conteneurAxe) {
+function configurerSlider(axe) {
   function majPlageDepuisEvent(clientX) {
     const rect = axe.getBoundingClientRect();
     const x = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
     const point = Math.round(x * 100);
-    // Plage symétrique de ±15 autour du point cliqué, bornée 0-100
     const debut = Math.max(0, point - 15);
     const fin = Math.min(100, point + 15);
     etat.plage = [debut, fin];
@@ -235,12 +232,15 @@ function afficherCards(partiId) {
   const titre = document.getElementById("cards-titre");
 
   const parti = partis.find((p) => p.id === partiId);
-  const personnes = donneesCompletes.personnalites.filter((p) => p.parti === partiId);
+  const personnes = personnalites.filter((p) => p.parti === partiId);
 
   titre.textContent = personnes.length + " personnalité" + (personnes.length > 1 ? "s" : "") + " — " + parti.nom;
 
   liste.replaceChildren();
-  const affairesParId = new Map(donneesCompletes.affaires.map((a) => [a.id, a]));
+  const affairesParId = new Map(affaires.map((a) => [a.id, a]));
+
+  /* Tri : nombre d'affaires décroissant, puis alphabétique */
+  personnes.sort((a, b) => b.implications.length - a.implications.length || a.nom.localeCompare(b.nom, "fr"));
 
   for (const personne of personnes) {
     liste.appendChild(construireCard(personne, affairesParId));
@@ -259,17 +259,15 @@ function masquerCards() {
 }
 
 async function selectionnerParti(partiId) {
-  if (!partiEstActif(partis.find((p) => p.id === partiId))) return;
+  const parti = partis.find((p) => p.id === partiId);
+  if (!partiEstActif(parti)) return;
 
   if (etat.partiSelectionne === partiId) {
     etat.partiSelectionne = null;
     masquerCards();
   } else {
-    if (!donneesCompletes) {
-      donneesCompletes = {
-        affaires: await chargerJson("data/affaires.json"),
-        personnalites: await chargerJson("data/personnalites.json"),
-      };
+    if (!affaires) {
+      affaires = await chargerJson("data/affaires.json");
     }
     etat.partiSelectionne = partiId;
     afficherCards(partiId);
@@ -277,20 +275,22 @@ async function selectionnerParti(partiId) {
   rafraichirEtatVisuel();
 }
 
-/* ---------- Démarrage : ne charge que partis.json ---------- */
+/* ---------- Démarrage ---------- */
 
 async function demarrer() {
-  partis = await chargerJson("data/partis.json");
+  [partis, personnalites] = await Promise.all([
+    chargerJson("data/partis.json"),
+    chargerJson("data/personnalites.json"),
+  ]);
 
-  /* Compter les affaires par parti nécessite personnalites + affaires.
-   * Pour garder le démarrage minimal, le compte est calculé au moment
-   * du chargement complet. Au démarrage, on affiche le nombre de
-   * personnalités du parti, lu depuis partis.json enrichi.
-   * Simple et honnête : le compte affiché est celui des personnalités. */
+  compteParParti = new Map();
+  for (const personne of personnalites) {
+    compteParParti.set(personne.parti, (compteParParti.get(personne.parti) || 0) + 1);
+  }
 
   afficherPartisSurAxe(document.getElementById("axis-partis"));
   afficherPartisEnTuiles(document.getElementById("partis-liste"));
-  configurerSlider(document.getElementById("axe"), document.getElementById("axis-partis"));
+  configurerSlider(document.getElementById("axe"));
   rafraichirEtatVisuel();
 }
 
