@@ -1,0 +1,245 @@
+[
+  {
+    "id": "emplois-fictifs-ville-de-paris",
+    "nom": "Emplois fictifs de la mairie de Paris",
+    "periode": "1988-1995",
+    "statut": "condamnation-definitive",
+    "resume": "Collaborateurs de la mairie de Paris rémunérés sur des fonds publics sans travail réel correspondant, au bénéfice du RPR et de la politique parisienne. Jacques Chirac, maire de Paris à l'époque des faits, est condamné en 2011 à deux ans de prison avec sursis pour détournement de fonds publics et abus de confiance, les faits étant couverts par la prescription. Premier ancien président de la République condamné par la justice.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_des_emplois_fictifs_de_la_mairie_de_Paris"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "emplois-fictifs-rpr",
+    "nom": "Emplois fictifs du RPR",
+    "periode": "1988-1995",
+    "statut": "condamnation-definitive",
+    "resume": "Permanents du parti gaulliste RPR rémunérés par la mairie de Paris ou des emplois publics. Alain Juppé, secrétaire général du RPR à l'époque, est condamné en 2004 à quatorze mois de prison avec sursis et un an d'inéligibilité, peines confirmées en appel avec exécution partielle.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_des_emplois_fictifs_du_RPR"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "bygmalion",
+    "nom": "Affaire Bygmalion",
+    "periode": "2012-2014",
+    "statut": "condamnation-definitive",
+    "resume": "Système de fausses factures avec l'agence de communication Bygmalion visant à masquer le dépassement massif des dépenses de la campagne présidentielle 2012 de Nicolas Sarkozy. Condamné en 2021 à un an de prison ferme, peine aménagée en appel en 2024 (un an dont six mois ferme sous bracelet électronique), condamnation définitivement confirmée par la Cour de cassation le 26 novembre 2025. Jean-François Copé, mis en cause dans la révélation de l'affaire, a bénéficié d'un non-lieu.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_Bygmalion"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "ecoutes-bismuth",
+    "nom": "Affaire des écoutes (Bismuth)",
+    "periode": "2014",
+    "statut": "condamnation-definitive",
+    "resume": "Tentatives de Nicolas Sarkozy et de son avocat d'obtenir d'un haut magistrat des informations confidentielles sur une instruction le visant, via une ligne cryptée utilisée sous le pseudonyme « Paul Bismuth ». Condamné en 2024 à un an de prison ferme aménagé sous bracelet électronique pour corruption et trafic d'influence ; condamnation définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_des_%C3%A9coutes"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "financement-libyen",
+    "nom": "Financement libyen de la campagne 2007",
+    "periode": "2005-2011",
+    "statut": "condamnation-premiere-instance",
+    "resume": "Soupçons d'un pacte de corruption avec la Libye de Mouammar Kadhafi pour financer la campagne présidentielle 2007 de Nicolas Sarkozy. Condamné le 25 septembre 2025 à cinq ans de prison dont un an ferme pour association de malfaiteurs ; trois semaines de détention en octobre-novembre 2025. Le procès en appel s'est tenu en 2026 ; la condamnation n'est pas définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_du_financement_libyen_de_la_campagne_pr%C3%A9sidentielle_fran%C3%A7aise_de_2007"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "affaire-fillon",
+    "nom": "Affaire Fillon",
+    "periode": "1998-2013",
+    "statut": "condamnation-definitive",
+    "resume": "Emplois présumés fictifs de Penelope Fillon comme assistante parlementaire de son mari et collaboratrice de la Revue des Deux Mondes, révélés en 2017 pendant la campagne présidentielle. La culpabilité de François Fillon pour détournement de fonds publics est définitivement confirmée par la Cour de cassation en 2024 ; condamné en appel de renvoi en juin 2025 à quatre ans de prison avec sursis, 375 000 euros d'amende et cinq ans d'inéligibilité ; il s'est désisté de son pourvoi en février 2026.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_Fillon"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "affaire-cahuzac",
+    "nom": "Affaire Cahuzac",
+    "periode": "1992-2013",
+    "statut": "condamnation-definitive",
+    "resume": "Jérôme Cahuzac, ministre du Budget chargé de la lutte contre la fraude fiscale, a détenu un compte non déclaré en Suisse puis à Singapour, nié formellement devant l'Assemblée nationale et le Parlement. Condamné en 2016 à trois ans de prison ferme, cinq ans d'inéligibilité et amende ; condamnation définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_Cahuzac"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "affaires-balkany",
+    "nom": "Affaires Balkany (fraude fiscale et blanchiment)",
+    "periode": "2009-2015",
+    "statut": "condamnation-definitive",
+    "resume": "Évasion fiscale d'au moins 13 millions d'euros par le couple Balkany via des montages offshore et des biens dissimulés (dont un compte révélé par les Panama Papers). Patrick Balkany condamné en 2019 à quatre ans ferme pour fraude fiscale puis à cinq ans dont un avec sursis pour blanchiment ; Isabelle Balkany à trois ans et dix ans d'inéligibilité. Condamnations confirmées en appel en 2020.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Patrick_Balkany",
+      "https://fr.wikipedia.org/wiki/Isabelle_Balkany"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "assistants-parlementaires-rn",
+    "nom": "Assistants parlementaires du FN/RN au Parlement européen",
+    "periode": "2004-2017",
+    "statut": "condamnation-appel",
+    "resume": "Détournement des enveloppes d'assistance parlementaire du Parlement européen : des collaborateurs d'eurodéputés FN/RN travaillaient en réalité pour le parti, y compris comme collaborateurs de Marine Le Pen hors du Parlement. Marine Le Pen condamnée en première instance le 31 mars 2025 (quatre ans dont deux fermes, 100 000 euros d'amende, cinq ans d'inéligibilité avec exécution provisoire), puis en appel le 7 juillet 2026 (trois ans dont un ferme aménageable sous bracelet, inéligibilité réduite à quinze mois, purgée ; elle redevient éligible). Son pourvoi en cassation est en cours.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_des_assistants_parlementaires_du_Front_national_au_Parlement_europ%C3%A9en"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "propos-condamnes-jmlp",
+    "nom": "Condamnations pour propos racistes et négationnistes",
+    "periode": "1987-2018",
+    "statut": "condamnation-definitive",
+    "resume": "Jean-Marie Le Pen a été condamné à plusieurs reprises, de façon définitive, pour provocation à la haine raciale, injure et contestation de crimes contre l'humanité, notamment pour avoir qualifié les chambres à gaz de « point de détail de l'histoire » et pour d'autres déclarations publiques à caractère raciste ou antisémite.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Jean-Marie_Le_Pen"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "va-om-subornation",
+    "nom": "Affaire VA-OM (subornation de témoins)",
+    "periode": "1993-1997",
+    "statut": "condamnation-definitive",
+    "resume": "Dans le volet judiciaire de l'affaire de corruption du match de football Valenciennes-OM, Bernard Tapie, alors président de l'Olympique de Marseille, est condamné en 1997 pour subornation de témoins ; il effectue plusieurs mois de détention. Condamnation définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_VA-OM"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "arbitrage-tapie",
+    "nom": "Arbitrage Tapie / Crédit lyonnais",
+    "periode": "2007-2008",
+    "statut": "condamnation-definitive",
+    "resume": "Arbitrage controversé de 2008 accordant environ 400 millions d'euros à Bernard Tapie dans son litige avec le Crédit lyonnais, jugé frauduleux et annulé ensuite par la justice. Christine Lagarde, ministre de l'Économie, est condamnée en 2016 pour négligence ayant permis cet arbitrage, sans peine prononcée ; décision définitive. Bernard Tapie, décédé en 2021, n'a pas été jugé au pénal dans ce dossier.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_Tapie"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "casino-annemasse",
+    "nom": "Affaire du casino d'Annemasse",
+    "periode": "1994-1999",
+    "statut": "condamnation-definitive",
+    "resume": "Financement illégal de la campagne des élections européennes de 1999 de Charles Pasqua par environ 1,1 million d'euros issus de la revente du casino d'Annemasse, dont il avait autorisé l'exploitation en 1994 comme ministre de l'Intérieur, contre l'avis de ses services. Condamné à dix-huit mois de prison avec sursis pour faux, financement illégal de campagne et abus de confiance ; pourvoi rejeté en 2010, condamnation définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_du_casino_d%27Annemasse"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "corruption-grenoble",
+    "nom": "Affaire des marchés de Grenoble (Carignon)",
+    "periode": "1986-1995",
+    "statut": "condamnation-definitive",
+    "resume": "Corruption d'Alain Carignon, maire de Grenoble et ancien ministre, par des entreprises en échange de marchés publics, notamment la concession de l'eau de la ville et le financement d'un journal local. Condamné en 1997 de façon définitive à cinq ans de prison dont quatre ferme, soixante mille euros d'amende et cinq ans d'inéligibilité ; environ vingt-neuf mois de détention effective.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Alain_Carignon"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "emplois-fictifs-assistants-mercier",
+    "nom": "Emplois fictifs d'assistants parlementaires (Mercier)",
+    "periode": "2005-2014",
+    "statut": "condamnation-definitive",
+    "resume": "L'épouse puis la fille de Michel Mercier, alors sénateur du Rhône, rémunérées comme assistantes parlementaires sans travail réel correspondant (environ 87 000 euros au total). Condamné en janvier 2023 à trois ans de prison avec sursis ; pas d'appel, condamnation définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Michel_Mercier"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "assistants-parlementaires-midem",
+    "nom": "Assistants parlementaires du MoDem au Parlement européen",
+    "periode": "2005-2017",
+    "statut": "condamnation-premiere-instance",
+    "resume": "Soupçons d'emplois fictifs : des collaborateurs d'eurodéputés MoDem rémunérés sur fonds européens travaillaient en réalité pour le parti (environ 300 000 euros en jeu). Verdict du 5 février 2024 : François Bayrou relaxé au bénéfice du doute, l'UDF et le MoDem condamnés à des amendes, plusieurs cadres et ex-eurodéputés condamnés dont Michel Mercier (dix-huit mois avec sursis). Le parquet a fait appel des relaxes ; le procès en appel s'est tenu du 9 septembre au 5 octobre 2026, verdict attendu le 17 décembre 2026.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_des_assistants_parlementaires_du_Mouvement_d%C3%A9mocrate_au_Parlement_europ%C3%A9en"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "mutuelles-bretagne",
+    "nom": "Affaire des Mutuelles de Bretagne",
+    "periode": "2011-2012",
+    "statut": "classement-sans-suite",
+    "resume": "Soupçons d'avantages accordés à une société immobilière dirigée par Richard Ferrand, alors directeur général des Mutuelles de Bretagne, dans le cadre d'une vente d'actifs. Enquête close par un classement sans suite en 2017, le parquet estimant l'infraction insuffisamment caractérisée et partiellement prescrite.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Richard_Ferrand"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "emplois-commission-cresson",
+    "nom": "Emplois de la commission d'Édith Cresson",
+    "periode": "1995-1999",
+    "statut": "classement-sans-suite",
+    "resume": "Recours critiqué à des collaborateurs de la Commission européenne par Édith Cresson, commissaire à la recherche, dont son ancien dentiste rémunéré comme conseiller. Les enquêtes n'ont pas donné suite à des poursuites ; la Cour de justice des Communautés européennes a estimé en 2006 qu'elle n'avait pas commis de faute engageant sa responsabilité.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/%C3%89dith_Cresson"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "carlton-lille",
+    "nom": "Affaire du Carlton de Lille",
+    "periode": "2009-2011",
+    "statut": "relaxe",
+    "resume": "Mise en examen de Dominique Strauss-Kahn en 2011 pour proxénétisme aggravé dans le dossier des dîners de Lille. Relaxé en 2015, le tribunal puis la cour d'appel estimant qu'il ignorait le statut des participantes aux soirées ; relaxe définitive.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Affaire_du_Carlton"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "accusation-viol-darmanin",
+    "nom": "Accusation de viol (affaire Patterson-Spatz)",
+    "periode": "2009-2024",
+    "statut": "non-lieu",
+    "resume": "Plainte pour viol déposée en 2017 contre Gérald Darmanin pour des faits remontant à 2009. Non-lieu prononcé en juillet 2022 faute de charges suffisantes, confirmé par la chambre de l'instruction en janvier 2023 puis par la Cour de cassation en février 2024. Procédure close définitivement.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/G%C3%A9rald_Darmanin"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "honoraires-renault-dati",
+    "nom": "Affaire des honoraires Renault-Nissan (Dati-Ghosn)",
+    "periode": "2009-2013",
+    "statut": "en-proces",
+    "resume": "Soupçons d'un travail de défense des intérêts de Renault-Nissan auprès des institutions européennes, rémunéré par environ 900 000 euros d'honoraires d'avocate versés entre 2010 et 2012 à Rachida Dati alors qu'elle était députée européenne. Mise en examen en juillet 2021 pour corruption passive et trafic d'influence ; son procès s'est ouvert le 16 septembre 2026 au tribunal correctionnel de Paris, aux côtés de Carlos Ghosn.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Rachida_Dati"
+    ],
+    "date_maj": "2026-10-13"
+  },
+  {
+    "id": "declaration-patrimoine-griset",
+    "nom": "Déclaration mensongère de patrimoine (Griset)",
+    "periode": "2020-2023",
+    "statut": "condamnation-appel",
+    "resume": "Déclaration incomplète ou mensongère de sa situation patrimoniale à la HATVP par Alain Griset, ministre délégué aux PME (minoration d'un plan d'épargne d'environ 130 000 euros). Condamné en première instance en décembre 2021 à six mois de prison avec sursis et trois ans d'inéligibilité avec sursis ; démissionne du gouvernement le jour même ; condamné en appel en janvier 2023 à quatre mois avec sursis.",
+    "sources": [
+      "https://fr.wikipedia.org/wiki/Alain_Griset"
+    ],
+    "date_maj": "2026-10-13"
+  }
+]

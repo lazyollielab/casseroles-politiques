@@ -1,0 +1,85 @@
+[
+  {
+    "id": "ps",
+    "nom": "Parti socialiste",
+    "sigle": "PS",
+    "axe": 28,
+    "actuel": true
+  },
+  {
+    "id": "divers-gauche",
+    "nom": "Divers gauche",
+    "sigle": "DVG",
+    "axe": 35,
+    "actuel": true,
+    "note": "Étiquette, pas un parti : regroupe des élus non encartés à gauche."
+  },
+  {
+    "id": "modem",
+    "nom": "Mouvement démocrate",
+    "sigle": "MoDem",
+    "axe": 50,
+    "actuel": true
+  },
+  {
+    "id": "re",
+    "nom": "Renaissance",
+    "sigle": "RE",
+    "axe": 55,
+    "actuel": true,
+    "note": "Ex-La République en marche (LREM)."
+  },
+  {
+    "id": "divers-centre",
+    "nom": "Divers centre",
+    "sigle": "DVC",
+    "axe": 55,
+    "actuel": true,
+    "note": "Étiquette, pas un parti."
+  },
+  {
+    "id": "udi",
+    "nom": "Union des démocrates et indépendants",
+    "sigle": "UDI",
+    "axe": 62,
+    "actuel": true
+  },
+  {
+    "id": "ump",
+    "nom": "Union pour un mouvement populaire",
+    "sigle": "UMP",
+    "axe": 72,
+    "actuel": false,
+    "note": "Devenu Les Républicains en 2015."
+  },
+  {
+    "id": "rpr",
+    "nom": "Rassemblement pour la République",
+    "sigle": "RPR",
+    "axe": 72,
+    "actuel": false,
+    "note": "Fusionné dans l'UMP en 2002."
+  },
+  {
+    "id": "lr",
+    "nom": "Les Républicains",
+    "sigle": "LR",
+    "axe": 74,
+    "actuel": true
+  },
+  {
+    "id": "fn",
+    "nom": "Front national",
+    "sigle": "FN",
+    "axe": 92,
+    "actuel": false,
+    "note": "Devenu Rassemblement national en 2018."
+  },
+  {
+    "id": "rn",
+    "nom": "Rassemblement national",
+    "sigle": "RN",
+    "axe": 90,
+    "actuel": true
+  }
+]
